@@ -65,7 +65,12 @@ test.describe("Cart Page", () => {
 
   test("Checkout form allows editing Zip Code", async () => {
     const { newZipCode } = testData.validUser;
-
     await cartPage.TypenewZipCode(newZipCode);
+  });
+  test("Test checkout form submit with valid credentials", async () => {
+    const { firstName, lastName } = testData.checkoutForm;
+    await cartPage.checkoutFormSubmitSuccessfully(firstName, lastName);
+    const successMsg = await cartPage.formSubmissionValidation();
+    expect(successMsg.trim()).toBe(testData.validationText);
   });
 });

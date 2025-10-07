@@ -12,6 +12,10 @@ module.exports = {
     inavalidEmail: "abc@x.com",
     inavalidPass: "abc123@",
   },
+  checkoutForm: {
+    firstName: "Tahmina",
+    lastName: "Tisha",
+  },
   // RegisterSuccessPopup: "Home",
   loginUnsuccessPopup: "Neither email nor password matched.",
   emailErrMsg: "Email is a required field",
@@ -23,4 +27,5 @@ module.exports = {
   popUpText: "Added to cart",
   removeItemText: "Removed from cart",
   expectedNameValidationMsg: "First Name is a required place",
+  validationText: "Checkout: Overview",
 };

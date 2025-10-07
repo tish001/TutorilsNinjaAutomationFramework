@@ -1,9 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 class TestUtils {
   static async captureScreenshot(page, testName) {
-    const screenshotsDir = path.resolve(__dirname, '../report/screenshots');
+    const screenshotsDir = path.resolve(__dirname, "../report/screenshots");
     if (!fs.existsSync(screenshotsDir)) {
       fs.mkdirSync(screenshotsDir, { recursive: true });
     }

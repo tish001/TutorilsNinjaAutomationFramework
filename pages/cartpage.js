@@ -23,6 +23,12 @@ class CartPage extends BasePage {
     this.FirstName = this.page.locator("//input[@placeholder='Ex. John']");
     this.LastName = this.page.locator("//input[@placeholder='Ex. Doe']");
     this.zipCode = this.page.locator("//input[@value='1207']");
+    this.continuetbtn = this.page.locator(
+      "//span[normalize-space()='Continue']"
+    );
+    this.validationText = this.page.locator(
+      "//h3[@class='text-xl font-black font-oswald mb-5']"
+    );
   }
   async addToCart() {
     await this.addBtn.click();
@@ -34,6 +40,7 @@ class CartPage extends BasePage {
     await this.addBtn.click();
     await this.checkoutOption.click();
     await this.checkoutBtn.click();
+    await this.page.waitForTimeout(3000);
   }
   async FirstNameCheck(validFirstName) {
     await this.addBtn.click();
@@ -41,8 +48,6 @@ class CartPage extends BasePage {
     await this.checkoutOption.click();
     await this.checkoutBtn.click();
     await this.FirstName.fill(validFirstName);
-     
-     
   }
 
   async LastNameCheck(validLastName) {
@@ -69,6 +74,16 @@ class CartPage extends BasePage {
   async removeFromCartPopUp() {
     await this.removePopUp.waitFor({ state: "visible" });
     return await this.removePopUp.textContent();
+  }
+   async checkoutFormSubmitSuccessfully(firstName, lastName) {
+    await this.checkoutItem();
+    await this.firstName.fill(firstName);
+    await this.lastName.fill(lastName);
+    await this.continuetbtn.click();
+  }
+  async formSubmissionValidation() {
+    await this.validationText.waitFor({ state: "visible" });
+    return await this.validationText.textContent();
   }
 }
 
