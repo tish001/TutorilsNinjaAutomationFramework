@@ -20,8 +20,8 @@ class CartPage extends BasePage {
       "//span[normalize-space()='Checkout']"
     );
     this.removePopUp = this.page.locator("//ol[@dir='ltr']//li");
-    this.FirstName = this.page.locator("//input[@placeholder='Ex. John']");
-    this.LastName = this.page.locator("//input[@placeholder='Ex. Doe']");
+    this.firstName = this.page.locator("//input[@placeholder='Ex. John']");
+    this.lastName = this.page.locator("//input[@placeholder='Ex. Doe']");
     this.zipCode = this.page.locator("//input[@value='1207']");
     this.continuetbtn = this.page.locator(
       "//span[normalize-space()='Continue']"
@@ -47,14 +47,14 @@ class CartPage extends BasePage {
 
     await this.checkoutOption.click();
     await this.checkoutBtn.click();
-    await this.FirstName.fill(validFirstName);
+    await this.firstNameirstName.fill(validFirstName);
   }
 
   async LastNameCheck(validLastName) {
     await this.addBtn.click();
     await this.checkoutOption.click();
     await this.checkoutBtn.click();
-    await this.LastName.fill(validLastName);
+    await this.lastNameastName.fill(validLastName);
   }
   async TypenewZipCode(newZipCode) {
     await this.addBtn.click();
@@ -75,7 +75,7 @@ class CartPage extends BasePage {
     await this.removePopUp.waitFor({ state: "visible" });
     return await this.removePopUp.textContent();
   }
-   async checkoutFormSubmitSuccessfully(firstName, lastName) {
+  async checkoutFormSubmitSuccessfully(firstName, lastName) {
     await this.checkoutItem();
     await this.firstName.fill(firstName);
     await this.lastName.fill(lastName);
