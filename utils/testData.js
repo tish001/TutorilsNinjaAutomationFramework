@@ -4,6 +4,9 @@ module.exports = {
     validEmail2: "practice@qabrains.com",
     validEmail3: "student@qabrains.com",
     Validpass: "Password123",
+    validFirstName: "tahmina",
+    validLastName: "Tisha",
+    newZipCode: "1204",
   },
   invalidUser: {
     inavalidEmail: "abc@x.com",
@@ -19,4 +22,5 @@ module.exports = {
   incorrectPassPopup: "Username matched but password is incorrect.",
   popUpText: "Added to cart",
   removeItemText: "Removed from cart",
+  expectedNameValidationMsg: "First Name is a required place",
 };

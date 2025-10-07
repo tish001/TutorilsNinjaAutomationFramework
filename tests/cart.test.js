@@ -41,7 +41,31 @@ test.describe("Cart Page", () => {
   test("Test checkout item ", async () => {
     await cartPage.checkoutItem();
   });
+
+  test("Test Name field with valid first name", async () => {
+    const { validFirstName } = testData.validUser;
+
+    await cartPage.FirstNameCheck(validFirstName);
+  });
+  test("Test Name field with valid last name", async () => {
+    const { validLastName } = testData.validUser;
+    await cartPage.FirstNameCheck(validLastName);
+  });
+  test("Test first name with empty values", async ({ page }) => {
+    await page.click("//span[normalize-space()='Continue']");
+    const errorExists = await page
+      .locator("//p[contains(text(),'First name is required')]")
+      .count();
+    if (errorExists === 0) {
+      console.error(
+        "❌ BUG: No validation message displayed for empty First Name field."
+      );
+    }
+  });
+
   test("Checkout form allows editing Zip Code", async () => {
-    await cartPage.newZipCode();
+    const { newZipCode } = testData.validUser;
+
+    await cartPage.TypenewZipCode(newZipCode);
   });
 });
